@@ -1,0 +1,32 @@
+{% extends 'UploadApp/base.html' %}
+{% block body %}
+
+<style>
+    .form-group {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <h1>Upload files here</h1>
+    <div class="row">
+        <div class="col-4">
+            <form method="post" enctype="multipart/form-data" action="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="filename">Enter purpose of file</label>
+                    <input class="form-control" id="filename" type="text" name="filename" required>
+                </div>
+                <div class="form-group">
+                    <label for="files">Upload file here:</label>
+                    <input class="form-control" id="files" type="file" name="files" multiple required>
+                </div>
+                <div class="form-group">
+                    <label for="submit">Submit</label>
+                    <input class="form-control btn btn-success" id="submit" name="submit" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
